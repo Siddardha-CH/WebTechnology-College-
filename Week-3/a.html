@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="hcss">
+    <script type="text/javascript">
+    function calc(){
+        var m1,m2,m3,avg= 0,total=0,result="",grade="";
+        m1=parseInt(document.form1.wt.value) || 0;
+        m2=parseInt(document.form1.cg.value) || 0;
+        m3=parseInt(document.form1.stm.value) || 0;
+        total=m1+m2+m3;
+        avg=total/3;
+        if(avg >= 70 && m1>39 && m2>39 && m3>39) {
+            result="Distinction";
+            grade="A+";
+        }
+        else if(avg >= 60 && avg < 70 &&  m1>39 && m2>39 && m3>39){
+            result="first class";
+            grade="A";
+        }
+        else if(avg >= 50 && avg < 60 &&  m1>39 && m2>39 && m3>39){
+            result="sec class";
+            grade="C";
+        }
+        else{
+            result="fail";
+            grade="F";
+        }
+        document.form1.total.value=total;
+        document.form1.average.value=avg.toFixed(2);
+        document.form1.grade.value=grade;
+    }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <table border="1">
+            <tr>
+                <td align="center">Student name </td>
+                <td><input type="text" name="studentname"/></td>                
+            </tr>
+            <tr>
+                <td colspan="2" align="center">Subject Marks</td>
+            </tr>
+            <tr>
+                <td>web tecnologies</td>
+                <td><input type="text" name="wt"></td>
+            </tr>
+            <tr>
+                <td>computer graphics</td>
+                <td><input type="text" name="cg"></td>
+            </tr>
+            <tr>
+                <td>software testing methodologies</td>
+                <td><input type="text" name="stm"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" onclick="calc()" value="calc">
+                </td>
+            </tr>
+            <tr>
+                <td>total</td>
+                <td><input type="text" name="total"></td>
+            </tr>
+            <tr>
+                <td>Aversge</td>
+                <td><input type="text" name="average"></td>
+            </tr>
+            <tr>
+                <td>grade</td>
+                <td><input type="text" name="grade"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
