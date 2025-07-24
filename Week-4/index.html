@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Page Validation</title>
+<script lang="javascript">
+function unameval() {
+var fname = regform.fname.value;
+var splchar = "!@#$%^&*()_+-={}|[]\\:?><,./''";
+if (fname.length < 6) {
+alert("first name must have at least 6 characters");
+}
+if (fname != "" && fname.length >= 6) {
+for (var i = 0; i < fname.length; i++) {
+if (splchar.indexOf(fname.charAt(i)) != -1) {
+alert("user id should not have any special characters");
+break;
+}
+}
+}
+}
+function pwdval() {
+var pw = regform.pwd.value;
+var cpw = regform.cpwd.value;
+if (pw.length < 6) {
+alert("pass must be 6 char");
+}
+if (pw != cpw) {
+alert("PASS DOES NOT MATCH");
+}
+else if (pw.length >= 6) {
+alert("PASSWORD VAL HAS BEEN SUCCESSFUL");
+}
+}
+function emailval() {
+var emailid = regform.email.value;
+if (emailid.indexOf('@') == -1) {
+alert("INVALID");
+}
+else {
+if ((emailid.indexOf("@") == 0) || (emailid.indexOf(".") == 0) || (emailid.indexOf("@") - emailid.indexOf(".") == 1)) {
+alert("given email id is invalid");
+}
+else {
+alert("given mail is valid");
+}
+}
+}
+function phnval() {
+var ph = regform.phno.value;
+if (ph.length == 10) {
+if (isNaN(ph)) {
+alert("it is not valid ph no");
+}
+else {
+alert("its a valid ph no");
+}
+
+}
+}
+</script>
+</head>
+<body bgcolor="#9370DB">
+<center>
+<h2>Online Reg Page</h2><br><br>
+<form name="regform" action="login.html" method="post">
+<h3>First Name: <input type="text" maxlength="22" size="25" name="fname" onblur="unameval()"><br><br>
+Last Name: <input type="text" maxlength="22" size="25" name="lname"><br><br>
+PASSWORD: <input type="password" maxlength="22" size="25" name="pwd"><br><br>
+CNFRM PWD: <input type="password" maxlength="22" size="25" name="cpwd" onblur="pwdval()"><br><br>
+Gender: <input type="radio" name="Gender" value="Male"> Male <br><br>
+<input type="radio" name="Gender" value="Female"> Female <br><br>
+Email-ID: <input type="text" maxlength="40" size="25" name="email" onblur="emailval()"><br><br>
+<input type="submit" value="submit">
+<input type="reset" value="reset">
+</h3>
+</form>
+</center>
+</body>
+</html>
